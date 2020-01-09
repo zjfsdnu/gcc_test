@@ -1,5 +1,5 @@
 build1:
-	gcc -E *.c
+	gcc -E -C main.c -o main.i
 
 build2:
 	gcc -S *.c
@@ -11,4 +11,4 @@ build4:
 	gcc -save-temps *.c
 
 clean:
-	-rm *.i *.s *.o *.exe *.out
+	$(shell  find . -regex '.*\.out\|.*\.exe\|.*\.i\|.*\.s\|.*\.o' | xargs rm -f)
